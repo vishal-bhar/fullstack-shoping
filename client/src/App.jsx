@@ -4,6 +4,8 @@ import { ThemeProvider } from "./components/provider/theme-provider"
 import Home from "./pages/Home.jsx"
 import {createBrowserRouter,RouterProvider} from "react-router-dom"
 import Signup from "./pages/Signup.jsx"
+import Login from "./pages/Login.jsx"
+
 
 
 function App() {
@@ -22,6 +24,14 @@ function App() {
       element:<>
       <Navbar />
       <Signup/>
+      <Footer/>
+      </>,
+    },
+    {
+      path:"/login",
+      element:<>
+      <Navbar />
+      <Login/>
       <Footer/>
       </>,
     }
