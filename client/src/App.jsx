@@ -1,3 +1,4 @@
+import Footer from "./components/custom/Footer.jsx"
 import Navbar from "./components/custom/Navbar.jsx"
 import { ThemeProvider } from "./components/provider/theme-provider"
 import Home from "./pages/Home.jsx"
@@ -12,6 +13,7 @@ function App() {
       element:<>
       <Navbar />
       <Home/>
+      <Footer/>
       </>,
     }
   ])

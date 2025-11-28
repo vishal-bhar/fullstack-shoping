@@ -1,5 +1,6 @@
 import FilterManu from '@/components/custom/FilterManu'
 import HeaderDisplay from '@/components/custom/HeaderDisplay'
+import ProductList from '@/components/custom/ProductList'
 import React from 'react'
 
 function Home() {
@@ -7,6 +8,7 @@ function Home() {
    <div>
     <HeaderDisplay />
     <FilterManu />
+    <ProductList />
    </div>
   )
 }
