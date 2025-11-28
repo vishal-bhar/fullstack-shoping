@@ -3,6 +3,7 @@ import Navbar from "./components/custom/Navbar.jsx"
 import { ThemeProvider } from "./components/provider/theme-provider"
 import Home from "./pages/Home.jsx"
 import {createBrowserRouter,RouterProvider} from "react-router-dom"
+import Signup from "./pages/Signup.jsx"
 
 
 function App() {
@@ -13,6 +14,14 @@ function App() {
       element:<>
       <Navbar />
       <Home/>
+      <Footer/>
+               </>,
+    },
+     {
+      path:"/signup",
+      element:<>
+      <Navbar />
+      <Signup/>
       <Footer/>
       </>,
     }
