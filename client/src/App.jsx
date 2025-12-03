@@ -10,6 +10,7 @@ import Checkout from "./pages/Checkout.jsx"
 import AdminLogin from "./pages/AdminLogin.jsx"
 import Error from "./pages/Error.jsx"
 import Success from "./pages/Success.jsx"
+import RootLayout from "./components/layouts/RootLayout.jsx"
 
 
 
@@ -18,51 +19,27 @@ function App() {
   const router= createBrowserRouter([
     {
       path:"/",
-      element:(<>
-      <Navbar />
-      <Home/>
-      <Footer/>
-      </>),
+      element:<RootLayout childern={<Home />}/>,
     },
      {
       path:"/signup",
-      element:(<>
-      <Navbar />
-      <Signup/>
-      <Footer/>
-      </>),
+       element:<RootLayout childern={<Signup/>} />,
     },
     {
       path:"/login",
-      element:(<>
-      <Navbar />
-      <Login/>
-      <Footer/>
-      </>),
+        element:<RootLayout childern={<Login />}/>,
     },
     {
       path:"/product",
-      element:(<>
-      <Navbar />
-      <Product/>
-      <Footer/>
-      </>),
+        element:<RootLayout childern={<Product />}/>,
     },
      {
       path:"/checkout",
-      element:(<>
-      <Navbar />
-      <Checkout/>
-      <Footer/>
-      </>),
+      element:<RootLayout childern={<Checkout />}/>,
     },
     {
       path:"/admin/login",
-      element:(<>
-      <Navbar />
-      <AdminLogin/>
-      <Footer/>
-      </>),
+      element:<RootLayout childern={<AdminLogin />}/>,
     },
     {
       path:"/*",
