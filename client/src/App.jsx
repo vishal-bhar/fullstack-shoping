@@ -10,7 +10,7 @@ import Checkout from "./pages/Checkout.jsx"
 import AdminLogin from "./pages/AdminLogin.jsx"
 import Error from "./pages/Error.jsx"
 import Success from "./pages/Success.jsx"
-import RootLayout from "./components/layouts/RootLayout.jsx"
+import RootLayout from "./layouts/RootLayout.jsx"
 
 
 
