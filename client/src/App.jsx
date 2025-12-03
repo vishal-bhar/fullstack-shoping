@@ -6,6 +6,7 @@ import {createBrowserRouter,RouterProvider} from "react-router-dom"
 import Signup from "./pages/Signup.jsx"
 import Login from "./pages/Login.jsx"
 import Product from "./pages/Product.jsx"
+import Checkout from "./pages/Checkout.jsx"
 
 
 
@@ -41,6 +42,14 @@ function App() {
       element:<>
       <Navbar />
       <Product/>
+      <Footer/>
+      </>,
+    },
+     {
+      path:"/checkout",
+      element:<>
+      <Navbar />
+      <Checkout/>
       <Footer/>
       </>,
     },
