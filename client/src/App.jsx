@@ -8,6 +8,8 @@ import Login from "./pages/Login.jsx"
 import Product from "./pages/Product.jsx"
 import Checkout from "./pages/Checkout.jsx"
 import AdminLogin from "./pages/AdminLogin.jsx"
+import Error from "./pages/Error.jsx"
+import Success from "./pages/Success.jsx"
 
 
 
@@ -61,6 +63,18 @@ function App() {
       <AdminLogin/>
       <Footer/>
       </>),
+    },
+    {
+      path:"/*",
+      element:
+      <Error/>
+     ,
+    },
+       {
+      path:"/success",
+      element:(
+      <Success/>
+     ),
     },
   ])
 
