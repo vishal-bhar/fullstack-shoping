@@ -7,6 +7,7 @@ import Signup from "./pages/Signup.jsx"
 import Login from "./pages/Login.jsx"
 import Product from "./pages/Product.jsx"
 import Checkout from "./pages/Checkout.jsx"
+import AdminLogin from "./pages/AdminLogin.jsx"
 
 
 
@@ -15,43 +16,51 @@ function App() {
   const router= createBrowserRouter([
     {
       path:"/",
-      element:<>
+      element:(<>
       <Navbar />
       <Home/>
       <Footer/>
-               </>,
+      </>),
     },
      {
       path:"/signup",
-      element:<>
+      element:(<>
       <Navbar />
       <Signup/>
       <Footer/>
-      </>,
+      </>),
     },
     {
       path:"/login",
-      element:<>
+      element:(<>
       <Navbar />
       <Login/>
       <Footer/>
-      </>,
+      </>),
     },
     {
       path:"/product",
-      element:<>
+      element:(<>
       <Navbar />
       <Product/>
       <Footer/>
-      </>,
+      </>),
     },
      {
       path:"/checkout",
-      element:<>
+      element:(<>
       <Navbar />
       <Checkout/>
       <Footer/>
-      </>,
+      </>),
+    },
+    {
+      path:"/admin/login",
+      element:(<>
+      <Navbar />
+      <AdminLogin/>
+      <Footer/>
+      </>),
     },
   ])
 
