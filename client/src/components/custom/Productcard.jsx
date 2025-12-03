@@ -24,7 +24,7 @@ function Productcard({name="Product Tittle",price=2000,rating=4,image={
                 </div>
                 <span>₹{price}</span>
             </div>
-           <LinkButton to={'/product/id'} text="vishal is back"/>
+           <LinkButton to={'/product'} text="vishal is back"/>
         </div>
     </div>
   )

@@ -5,6 +5,7 @@ import Home from "./pages/Home.jsx"
 import {createBrowserRouter,RouterProvider} from "react-router-dom"
 import Signup from "./pages/Signup.jsx"
 import Login from "./pages/Login.jsx"
+import Product from "./pages/Product.jsx"
 
 
 
@@ -34,7 +35,15 @@ function App() {
       <Login/>
       <Footer/>
       </>,
-    }
+    },
+    {
+      path:"/product",
+      element:<>
+      <Navbar />
+      <Product/>
+      <Footer/>
+      </>,
+    },
   ])
 
   return  <>

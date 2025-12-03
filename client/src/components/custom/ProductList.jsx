@@ -9,7 +9,7 @@ function ProductList() {
         <Productcard />
         <Productcard />
         <Productcard />
-        <Productcard />
+     
 
 
     </div>
