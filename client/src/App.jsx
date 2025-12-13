@@ -1,5 +1,3 @@
-import Footer from "./components/custom/Footer.jsx"
-import Navbar from "./components/custom/Navbar.jsx"
 import { ThemeProvider } from "./components/provider/theme-provider"
 import Home from "./pages/Home.jsx"
 import {createBrowserRouter,RouterProvider} from "react-router-dom"
@@ -11,6 +9,12 @@ import AdminLogin from "./pages/AdminLogin.jsx"
 import Error from "./pages/Error.jsx"
 import Success from "./pages/Success.jsx"
 import RootLayout from "./layouts/RootLayout.jsx"
+import AdminLayout from "./layouts/AdminLayout.jsx"
+import CreateProducts from "./components/custom/CreateProducts"
+import AllProducts from "./components/custom/AllProducts"
+import Analaytics from "./components/custom/Analaytics"
+import Orders from "./components/custom/Orders"
+import Settings from "./components/custom/Settings"
 
 
 
@@ -19,27 +23,47 @@ function App() {
   const router= createBrowserRouter([
     {
       path:"/",
-      element:<RootLayout childern={<Home />}/>,
+      element:<RootLayout children={<Home />}/>,
     },
      {
       path:"/signup",
-       element:<RootLayout childern={<Signup/>} />,
+       element:<RootLayout children={<Signup/>} />,
     },
     {
       path:"/login",
-        element:<RootLayout childern={<Login />}/>,
+        element:<RootLayout children={<Login />}/>,
     },
     {
       path:"/product",
-        element:<RootLayout childern={<Product />}/>,
+        element:<RootLayout children={<Product />}/>,
     },
      {
       path:"/checkout",
-      element:<RootLayout childern={<Checkout />}/>,
+      element:<RootLayout children={<Checkout />}/>,
     },
     {
       path:"/admin/login",
-      element:<RootLayout childern={<AdminLogin />}/>,
+      element:<RootLayout children={<AdminLogin />}/>,
+    },
+    {
+      path:"/admin/deshboard",
+      element:<AdminLayout children={<CreateProducts/>} />,
+    },
+    {
+      path:"/admin/deshboard/all-products",
+      element:<AdminLayout children={<AllProducts />} />,
+    },
+    {
+      path:"/admin/deshboard/analytics",
+      element:<AdminLayout children={<Analaytics />} />,
+    },
+    {
+      path:"/admin/deshboard/orders",
+      element:<AdminLayout children={<Orders />} />,
+    },
+    {
+      path:"/admin/deshboard/settings",
+      element: <AdminLayout children={<Settings />} />,
     },
     {
       path:"/*",

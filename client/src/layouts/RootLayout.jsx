@@ -3,10 +3,10 @@ import Navbar from "../components/custom/Navbar"
 
 
 
-function RootLayout({childern}) {
+function RootLayout({children}) {
   return <>
   <Navbar />
-  {childern}
+  {children}
   <Footer/>
   </>
 }
