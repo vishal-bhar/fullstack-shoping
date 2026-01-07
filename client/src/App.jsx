@@ -15,6 +15,9 @@ import AllProducts from "./components/custom/AllProducts"
 import Analaytics from "./components/custom/Analaytics"
 import Orders from "./components/custom/Orders"
 import Settings from "./components/custom/Settings"
+import { Provider } from "@radix-ui/react-tooltip"
+import { store } from "./redux/store"
+
 
 
 
@@ -81,7 +84,9 @@ function App() {
 
   return  <>
   <ThemeProvider>
+  <Provider store={store}>
   <RouterProvider router={router} />
+  </Provider>
   </ThemeProvider>
 
   </>
