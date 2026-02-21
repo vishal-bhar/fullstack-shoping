@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
+import { toast } from "sonner"
 
 import React, { useState } from "react";
 
@@ -9,11 +10,29 @@ function Signup() {
 
     const [enable,setEnable]=useState(false)
 
+
+    const handalSubmit=async(e)=>{
+      e.preventDefault();
+      const {email,name,phone,password}=e.target.elements;
+      if(email.value.trim()==="" || name.value.trim()===""
+         || phone.value.trim()===""||
+       password.value.trim()===""
+    )
+toast.error("please fill up the fields",{
+  unstyled: true,
+   classNames: {
+              error: 'bg-red-400',
+              description: "text-black-900",
+              
+            },
+});
+
+    }
   return (
    <> 
    <div className="w-[60vw] lg:w-[25vw] mx-auto my-10 grid gap-3">
       <h1 className="text-2xl font-bold">Register Your Account</h1>
-      <form className="grid gap-3">
+      <form className="grid gap-3" onSubmit={handalSubmit}>
         <Input placeholder="Enter your Name" type="text" name="name" />
         <Input placeholder="Enter your Email" type="email" name="email" />
         <Input placeholder="Enter your Phone" type="tel" name="phone" />

@@ -1,6 +1,7 @@
 import { ThemeProvider } from "./components/provider/theme-provider"
 import Home from "./pages/Home.jsx"
 import {createBrowserRouter,RouterProvider} from "react-router-dom"
+import MyOrders from "./pages/MyOrders.jsx"
 import Signup from "./pages/Signup.jsx"
 import Login from "./pages/Login.jsx"
 import Product from "./pages/Product.jsx"
@@ -17,6 +18,7 @@ import Orders from "./components/custom/Orders"
 import Settings from "./components/custom/Settings"
 import { Provider } from "@radix-ui/react-tooltip"
 import { store } from "./redux/store"
+import { Toaster } from "sonner";
 
 
 
@@ -43,6 +45,10 @@ function App() {
      {
       path:"/checkout",
       element:<RootLayout children={<Checkout />}/>,
+    },
+      {
+      path:"/orders",
+      element:<RootLayout children={<MyOrders />}/>,
     },
     {
       path:"/admin/login",
@@ -85,6 +91,7 @@ function App() {
   return  <>
   <ThemeProvider>
   <Provider store={store}>
+         <Toaster />
   <RouterProvider router={router} />
   </Provider>
   </ThemeProvider>
