@@ -21,7 +21,7 @@ function LogoutToggle({user}) {
 </Avatar>
   </DropdownMenuTrigger>
   <DropdownMenuContent align="center">
-    <DropdownMenuItem onClick={()=>disatch(setUserLogout) }>Logout</DropdownMenuItem>
+    <DropdownMenuItem onClick={()=>disatch(setUserLogout()) }>Logout</DropdownMenuItem>
     <Link to="/orders">
     <DropdownMenuItem>My Orders</DropdownMenuItem>
     </Link>

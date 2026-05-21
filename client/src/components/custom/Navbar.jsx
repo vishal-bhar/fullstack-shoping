@@ -19,7 +19,7 @@ const {isAuthenticated,user} = useSelector((state)=> state.auth)
             <ModeToggle />
             <CartDrawer/>
             {
-isAuthenticated ? (<LogoutToggle user={user}/>)
+    isAuthenticated ? (<LogoutToggle user={user}/>)
 :(
     <Link to={"/Login"}>
         <User strokeWidth={1.3} size={28} className="text-gray-800 dark:text-white hover:scale-105 transition-all ease-in-out"/>

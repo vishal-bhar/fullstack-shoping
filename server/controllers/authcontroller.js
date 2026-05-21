@@ -172,7 +172,7 @@ const adminLogin=async (req,res)=>{
             success:true,
             message:"Admin is loged in ",
             token,
-            admin:{
+            user:{
                 id:admin._id,
                 username:admin.username,
                 role:admin.role,

@@ -1,14 +1,24 @@
 import React from 'react'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
+import useErrorLogout from '@/hooks/use-error-logout'
 
 function Settings() {
+const {handleErrorLogout}=useErrorLogout();
+
+const changeUserName=(e)=>{
+e.preventDefault();
+const formData=FormData(e.target);
+// const previousUserName =
+
+}
+
   return (
     <div className='flex flex-col sm:flex-row justify-center items-center gap-3 w-screen sm:w-[80vw] sm:justify-start'>
       {/* Change Username */}
     <div>
         <h2 className='text-2xl font-bold mb-3'>Change Username</h2>
-      <form className='grid gap-3 w-[80vw] sm:w-[30vw]'>
+      <form className='grid gap-3 w-[80vw] sm:w-[30vw]' onSubmit={changeUserName}>
         <Input type="text" placeholder="Enter previous Username" name="previousUsername"/>
         <Input type="text" placeholder="Enter new Username" name="newUsername"/>
     <Button type="submit">Change Username</Button>

@@ -1,6 +1,6 @@
 import { ThemeProvider } from "./components/provider/theme-provider"
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Home from "./pages/Home.jsx"
-import {createBrowserRouter,RouterProvider} from "react-router-dom"
 import MyOrders from "./pages/MyOrders.jsx"
 import Signup from "./pages/Signup.jsx"
 import Login from "./pages/Login.jsx"
@@ -16,6 +16,7 @@ import AllProducts from "./components/custom/AllProducts"
 import Analaytics from "./components/custom/Analaytics"
 import Orders from "./components/custom/Orders"
 import Settings from "./components/custom/Settings"
+import ProtectedRoute from "./components/custom/ProtectedRoute"
 import { Provider } from "react-redux"
 import { store } from "./redux/store.js"
 import { Toaster } from "sonner";
@@ -25,76 +26,76 @@ import { Toaster } from "sonner";
 
 function App() {
 
-  const router= createBrowserRouter([
+  const router = createBrowserRouter([
     {
-      path:"/",
-      element:<RootLayout children={<Home />}/>,
-    },
-     {
-      path:"/signup",
-       element:<RootLayout children={<Signup/>} />,
+      path: "/",
+      element: <ProtectedRoute><RootLayout children={<Home />} /></ProtectedRoute>,
     },
     {
-      path:"/login",
-        element:<RootLayout children={<Login />}/>,
+      path: "/signup",
+      element: <ProtectedRoute><RootLayout children={<Signup />} /></ProtectedRoute>,
     },
     {
-      path:"/product",
-        element:<RootLayout children={<Product />}/>,
-    },
-     {
-      path:"/checkout",
-      element:<RootLayout children={<Checkout />}/>,
-    },
-      {
-      path:"/orders",
-      element:<RootLayout children={<MyOrders />}/>,
+      path: "/login",
+      element: <ProtectedRoute><RootLayout children={<Login />} /></ProtectedRoute>,
     },
     {
-      path:"/admin/login",
-      element:<RootLayout children={<AdminLogin />}/>,
+      path: "/product",
+      element: <RootLayout children={<Product />} />,
     },
     {
-      path:"/admin/deshboard",
-      element:<AdminLayout children={<CreateProducts/>} />,
+      path: "/checkout",
+      element: <ProtectedRoute><RootLayout children={<Checkout />} /></ProtectedRoute>,
     },
     {
-      path:"/admin/deshboard/all-products",
-      element:<AdminLayout children={<AllProducts />} />,
+      path: "/orders",
+      element: <ProtectedRoute><RootLayout children={<MyOrders />} /></ProtectedRoute>,
     },
     {
-      path:"/admin/deshboard/analytics",
-      element:<AdminLayout children={<Analaytics />} />,
+      path: "/admin/login",
+      element: <ProtectedRoute><RootLayout children={<AdminLogin />} /></ProtectedRoute>,
     },
     {
-      path:"/admin/deshboard/orders",
-      element:<AdminLayout children={<Orders />} />,
+      path: "/admin/dashboard",
+      element: <ProtectedRoute><AdminLayout children={<CreateProducts />} /></ProtectedRoute>,
     },
     {
-      path:"/admin/deshboard/settings",
-      element: <AdminLayout children={<Settings />} />,
+      path: "/admin/dashboard/all-products",
+      element: <ProtectedRoute><AdminLayout children={<AllProducts />} /></ProtectedRoute>,
     },
     {
-      path:"/*",
+      path: "/admin/dashboard/analytics",
+      element: <ProtectedRoute><AdminLayout children={<Analaytics />} /></ProtectedRoute>,
+    },
+    {
+      path: "/admin/dashboard/orders",
+      element: <ProtectedRoute><AdminLayout children={<Orders />} /></ProtectedRoute>,
+    },
+    {
+      path: "/admin/dashboard/settings",
+      element: <ProtectedRoute> <AdminLayout children={<Settings />} /></ProtectedRoute>,
+    },
+    {
+      path: "/*",
       element:
-      <Error/>
-     ,
+        <Error />
+      ,
     },
-       {
-      path:"/success",
-      element:(
-      <Success/>
-     ),
+    {
+      path: "/success",
+      element: (
+        <Success />
+      ),
     },
   ])
 
-  return  <>
-  <ThemeProvider>
-  <Provider store={store}>
-         <Toaster />
-  <RouterProvider router={router} />
-  </Provider>
-  </ThemeProvider>
+  return <>
+    <ThemeProvider>
+      <Provider store={store}>
+        <Toaster />
+        <RouterProvider router={router} />
+      </Provider>
+    </ThemeProvider>
 
   </>
 }

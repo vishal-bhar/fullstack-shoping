@@ -21,11 +21,11 @@ function Login() {
 
       try {
         const res = await axios.post(import.meta.env.VITE_API_URL + "/login", {
-          email: email.value,
+          email:email.value,
           password:password.value
         });
 
-        console.log(res)
+        // console.log(res)
 
         const data= await res.data;
 
@@ -36,7 +36,7 @@ function Login() {
          navigate("/")
 
       } catch (error) {
-        console.log(error)
+        // console.log(error)
     toast.error(error.response.data.message)
 
       }
