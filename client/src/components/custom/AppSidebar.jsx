@@ -19,27 +19,27 @@ import { setUserLogout } from "@/redux/slices/authSlice"
 const items = [
   {
     title: "Create Product",
-    url: "/admin/deshboard",
+    url: "/admin/dashboard",
     icon: FilePlus2Icon,
   },
   {
     title: "All Products",
-    url: "/admin/deshboard/all-products",
+    url: "/admin/dashboard/all-products",
     icon: GalleryVerticalEnd,
   },
   {
     title: "Orders",
-    url: "/admin/deshboard/orders",
+    url: "/admin/dashboard/orders",
     icon: PackageSearch,
   },
   {
     title: "Analytics",
-    url: "/admin/deshboard/analytics",
+    url: "/admin/dashboard/analytics",
     icon: ChartBar,
   },
   {
     title: "Settings",
-    url: "/admin/deshboard/settings",
+    url: "/admin/dashboard/settings",
     icon: Settings,
   }, 
 ]

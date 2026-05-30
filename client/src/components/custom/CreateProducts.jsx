@@ -32,8 +32,15 @@ const removeImage=(removeToIndex)=>{
 };
 
 const handalImageUpload=(e)=>{
-
-}
+// const files=e.target.files;
+// if(files){
+//   const newImages=Array.from(files).map((file)=>{
+//     preview:URL.createObjectURL(file);
+//     file;
+//   });
+//   setImages
+// }
+};
 
   return (
     <div className='w-full max-w-2xl-z-10'>
@@ -189,10 +196,10 @@ const handalImageUpload=(e)=>{
         <CardFooter>
           <Button
            type="submit" 
-           className="w-full" 
+           className="w-[20rem]" 
            disable={isLoading}>
             {isLoading  && <Loader className='mr-2 h-4 w-4 animated-spin'/>}
-            {isLoading ? "Adding Product..." : "Add Product" }
+            {isLoading ? "Adding Product..." : "Add vishla Product" }
            </Button>
         </CardFooter>
       </form>

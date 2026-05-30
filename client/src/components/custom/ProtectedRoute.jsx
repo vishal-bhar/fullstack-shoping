@@ -2,10 +2,18 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Navigate, useLocation } from 'react-router-dom';
 
+
 const  ProtectedRoute=({children} )=> {
+
+
+
 const{pathname}=useLocation()
 const {isAuthenticated,role}=useSelector((state)=>state.auth);
 const{cartItems}=useSelector((state)=>state.cart)
+
+
+
+
 
 if(isAuthenticated && role=== "admin" && pathname==="/admin/login"){
     return <Navigate to="/admin/dashboard" />;

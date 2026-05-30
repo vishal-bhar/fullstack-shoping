@@ -6,7 +6,7 @@ const useErrorLogout=()=>{
     const dispatch=useDispatch();
 
     const handleErrorLogout=(error,otherTitle="Error occured")=>{
-        if(error.response.status===400){
+        if(error.response.status===401){
             dispatch(setUserLogout());
 
             toast.error("Session Expired",)
