@@ -3,7 +3,8 @@ import Product from "../models/Product.js";
 import cloudinary from "../utils/cloudinary.js"
 
 const createProduct=async (req,res)=>{
-
+        
+console.log("vishal")
     if(req.role !== ROLE.admin){
         return res.status(401)
         .json({
@@ -16,15 +17,21 @@ const createProduct=async (req,res)=>{
             const {name, price, description,stock,colors ,category}=req.body;
 
             const uploadedImages=[];
+            // console.log(req.files)
 
-            for(const file of req.files){
+           
+
+            for(const file in req.files){
+                console.log(req.files)
                 const result= await cloudinary.uploader.upload(req.files[file].path,{
                     folder:"products"
                 });
                 uploadedImages.push({
-                    url:result.secure.url,
+                    url:result.secure_url,
                     id:result.public_id
                 });
+
+                console.log(result,"hai vishl main yaha hu")
             }
 
             const product=new Product({

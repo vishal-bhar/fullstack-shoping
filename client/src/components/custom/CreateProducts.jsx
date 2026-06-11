@@ -8,15 +8,16 @@ import { Loader, Loader2, Upload, X } from 'lucide-react'
 import { Textarea } from '../ui/textarea'
 import { toast } from 'react-toastify'
 import useErrorLogout from '@/hooks/use-error-logout'
+import axios from 'axios'
 
 
 function CreateProducts() {
 
   const [currentColor, setCurrentColor] = useState("#000000");
   const [colors, setColors] = useState([]);
-  const [images, setImages] = useState([0]);
+  const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const {handleErrorLogout}=useErrorLogout
+  const {handleErrorLogout}=useErrorLogout()
 
   const fileInputRef = useRef(null);
 
@@ -36,12 +37,13 @@ function CreateProducts() {
 
   const handalImageUpload = (e) => {
     const files = e.target.files;
+    
     if (files) {
-      const newImages = Array.from(files).map((file) => {
-        preview: URL.createObjectURL(file);
-        file;
-      });
-      setImages([...images, ...newImages].slice(0, 4));
+      const newImages = Array.from(files).map((file) => ({
+        preview: URL.createObjectURL(file),
+        file,
+      }));
+      setImages((prevImage)=>[...prevImage,...newImages].slice(0,4))
     }
   };
 
@@ -85,6 +87,20 @@ function CreateProducts() {
     images.forEach((image)=>formData.append("images",image.file));
 
     try {
+     console.log(import.meta.env);
+console.log(import.meta.env.VITE_API_URL);
+      const res=await axios.post(
+        import.meta.env.VITE_API_URL+"/create-product",
+        formData,
+        {
+          headers:{
+            "Content-Type":"multipart/form-data",
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+          },
+        }
+      );
+
+      toast.success(res.data.message)
       
     } catch (error) {
       handleErrorLogout(error,"error uplaoding product")
@@ -184,7 +200,7 @@ if(isLoading){
                   onChange={(e) => setCurrentColor(e.target.value)}
                   className="w-12 h-12 p-1 rounded-md"
                 />
-                <Button variant="outline" onClick={addColor}>
+                <Button type="button" variant="outline" onClick={addColor}>
                   Add Color
                 </Button>
               </div>
@@ -224,7 +240,7 @@ if(isLoading){
                     <Button variant="destructive"
                       size="icon"
                       className="absolute -top-2 -right-2 h-6 w-6 rounded-full"
-                      onClick={() => removeImage(0)}
+                      onClick={() => removeImage(index)}
                     >
                       <X className='h-4 w-4' />
                       <span className='sr-only'>Remove image</span>
