@@ -1,15 +1,14 @@
-import Product from "@/pages/Product";
 import { createSlice } from "@reduxjs/toolkit";
 
 
 const productSlice=createSlice({
     name:"product",
     initialState:{
-        product:[]
+        products:[]
     },
     reducers:{
         setProducts:(state,action)=>{
-            state.product=action.payload;
+            state.products=action.payload;
         },
     }
 })
@@ -17,3 +16,20 @@ const productSlice=createSlice({
 export const {setProducts}=productSlice.actions;
 
 export default productSlice.reducer;
+
+// import { createSlice } from "@reduxjs/toolkit";
+
+// const productSlice = createSlice({
+//   name: "product",
+//   initialState: {
+//     products: []
+//   },
+//   reducers: {
+//     setProducts: (state, action) => {
+//       state.products = action.payload;
+//     },
+//   },
+// });
+
+// export const { setProducts } = productSlice.actions;
+// export default productSlice.reducer;

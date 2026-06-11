@@ -87,8 +87,6 @@ function CreateProducts() {
     images.forEach((image)=>formData.append("images",image.file));
 
     try {
-     console.log(import.meta.env);
-console.log(import.meta.env.VITE_API_URL);
       const res=await axios.post(
         import.meta.env.VITE_API_URL+"/create-product",
         formData,

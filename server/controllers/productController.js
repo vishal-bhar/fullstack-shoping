@@ -157,16 +157,16 @@ const getProduct=async (req,res)=>{
 
     if(category==="all") delete query.category;
 
-    if(search) query.name={$regex:search, $options:"1"};
+    if(search) query.name={$regex:search, $options:"i"};
 
     if(price >0) query.price={$lte:price};
 
     const totalProducts=await Product.countDocuments(query);
 
-    const totalPages=Math.ceil(totalPrice / limit);
+    const totalPages=Math.ceil(totalProducts / limit);
 
     const products=await Product.find(query)
-    .select("name price image rating description blacklistd")
+    .select("name price images rating description blacklistd")
     .skip((page -1 ) * limit)
     .limit(limit);
 
@@ -174,7 +174,7 @@ const getProduct=async (req,res)=>{
 
     products.forEach((product)=>{
         const productObj=product.toObject();
-        productObj.image=productObj.images[0].url;
+        productObj.image=productObj.images[0];
         delete productObj.images;
         newProductArray.push(productObj);
 
@@ -202,12 +202,14 @@ const getProduct=async (req,res)=>{
     });
 
  } catch (error) {
+      console.log(error)
     return res.status(500)
     .json({
         success:false,
         message:error.message
     })
  }
+
 };
 
 const getProductByName=async(req,res)=>{

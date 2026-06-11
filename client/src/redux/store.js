@@ -11,4 +11,5 @@ cart:cartSlice,
 product:productSlice
 
   }
-})
+});
+

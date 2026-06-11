@@ -21,7 +21,7 @@ router.put("/update-product/:id",verifyToken,updateProduct);
 
 router.delete("/delete-product/:id",verifyToken,deleteProduct);
 
-router.get("/get-product",getProduct);
+router.get("/get-products",getProduct);
 
 router.get("/get-product-by-id-name",getProductByName);
 
